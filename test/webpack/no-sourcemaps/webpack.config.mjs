@@ -1,0 +1,14 @@
+import { join } from "path";
+import { DebugIdWebpackPlugin } from "../../../dist/webpack.mjs";
+
+const __dirname = new URL(".", import.meta.url).pathname;
+
+export default {
+  entry: join(__dirname, "./src/main.js"),
+  plugins: [new DebugIdWebpackPlugin()],
+  mode: "production",
+  output: {
+    filename: "main.js",
+    path: join(__dirname, "dist"),
+  },
+};

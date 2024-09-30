@@ -1,0 +1,52 @@
+{
+  "name": "@sentry/debug-ids",
+  "version": "0.0.1",
+  "license": "MIT",
+  "exports": {
+    "rollup": {
+      "require": "./dist/rollup.js",
+      "import": "./dist/rollup.mjs"
+    },
+    "webpack": {
+      "require": "./dist/webpack.js",
+      "import": "./dist/webpack.mjs"
+    },
+    "esbuild": {
+      "require": "./dist/esbuild.js",
+      "import": "./dist/esbuild.mjs"
+    },
+    "vite": {
+      "require": "./dist/vite.js",
+      "import": "./dist/vite.mjs"
+    },
+    "rspack": {
+      "require": "./dist/rspack.js",
+      "import": "./dist/rspack.mjs"
+    },
+    "rolldown": {
+      "require": "./dist/rolldown.js",
+      "import": "./dist/rolldown.mjs"
+    }
+  },
+  "scripts": {
+    "build": "pkgroll --clean-dist --target=es2018 --target=node14 --sourcemap",
+    "test": "vitest run ./test/**/*.test.ts"
+  },
+  "devDependencies": {
+    "@rspack/cli": "^1.0.8",
+    "@rspack/core": "^1.0.8",
+    "@types/node": "14",
+    "esbuild": "^0.24.0",
+    "pkgroll": "^2.5.0",
+    "rolldown": "^0.13.2",
+    "rollup": "^4.22.5",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.8",
+    "vitest": "^2.1.1",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "volta": {
+    "node": "20.17.0"
+  }
+}
