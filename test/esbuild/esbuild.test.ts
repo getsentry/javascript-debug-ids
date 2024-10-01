@@ -4,11 +4,11 @@ import { runCmd, TestOptions, testResults } from "../utils";
 
 const __dirname = new URL(".", import.meta.url).pathname;
 
-function esbuildTest(path: string, options: TestOptions) {
+function esbuildTest(path: string, results: TestOptions) {
   const baseDir = join(__dirname, path);
   runCmd("node", ["./build.mjs"], baseDir);
 
-  testResults(baseDir, options);
+  testResults(baseDir, results);
 }
 
 describe("rollup", () => {
