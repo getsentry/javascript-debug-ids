@@ -56,3 +56,19 @@ await esbuild.build({
   outdir: "./dist",
 });
 ```
+
+## vite
+
+```ts
+import debugIds from "@sentry/debug-ids/vite";
+
+export default {
+  root: "./src",
+  mode: "production",
+  plugins: [debugIds()],
+  build: {
+    outDir: "./dist",
+    sourcemap: true,
+  },
+};
+```
