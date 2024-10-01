@@ -59,6 +59,7 @@ await esbuild.build({
 
 ## vite
 
+`vite.config.mjs`
 ```ts
 import debugIds from "@sentry/debug-ids/vite";
 
@@ -69,6 +70,24 @@ export default {
   build: {
     outDir: "./dist",
     sourcemap: true,
+  },
+};
+```
+
+## rspack
+
+`rspack.config.mjs`
+```ts
+import { DebugIdRspackPlugin } from "@sentry/debug-ids/rspack";
+
+export default {
+  entry: "./src/main.js",
+  plugins: [new DebugIdRspackPlugin()],
+  mode: "production",
+  devtool: "source-map",
+  output: {
+    filename: "main.js",
+    path: "./dist",
   },
 };
 ```

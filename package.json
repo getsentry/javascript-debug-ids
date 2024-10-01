@@ -18,6 +18,10 @@
     "vite": {
       "require": "./dist/vite.js",
       "import": "./dist/vite.mjs"
+    },
+    "rspack": {
+      "require": "./dist/rspack.js",
+      "import": "./dist/rspack.mjs"
     }
   },
   "scripts": {
@@ -25,6 +29,8 @@
     "test": "vitest run ./test/**/*.test.ts"
   },
   "devDependencies": {
+    "@rspack/cli": "^1.0.8",
+    "@rspack/core": "^1.0.8",
     "@types/node": "14",
     "esbuild": "^0.24.0",
     "pkgroll": "^2.5.0",
