@@ -1,2 +1,0 @@
-(self.webpackChunk=self.webpackChunk||[]).push([["109"],{48:function(){console.log("anther")}}]);
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTA5Lm1haW4uanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvYW5vdGhlci5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyJjb25zb2xlLmxvZyhcImFudGhlclwiKTtcbiJdLCJuYW1lcyI6WyJjb25zb2xlIl0sIm1hcHBpbmdzIjoidUVBQUFBLFFBQVEsR0FBRyxDQUFDLFMifQ==

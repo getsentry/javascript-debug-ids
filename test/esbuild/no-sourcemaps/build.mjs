@@ -9,6 +9,7 @@ await esbuild.build({
   bundle: true,
   format: "esm",
   minify: true,
+  sourcemap: false,
   plugins: [debugIds],
   outdir: join(__dirname, "dist"),
 });

@@ -1,16 +1,12 @@
 import { describe, test } from "vitest";
-import { execFileSync } from "child_process";
 import { join } from "path";
-import { TestOptions, testSourcesAndMaps } from "../utils";
+import { runCmd, TestOptions, testSourcesAndMaps } from "../utils";
 
 const __dirname = new URL(".", import.meta.url).pathname;
 
 function rolldownTest(path: string, options: TestOptions) {
   const baseDir = join(__dirname, path);
-  execFileSync("rolldown", ["-c", "rolldown.config.mjs"], {
-    cwd: baseDir,
-    stdio: "inherit",
-  });
+  runCmd("rolldown", ["-c", "rolldown.config.mjs"], baseDir);
 
   testSourcesAndMaps(baseDir, options);
 }
@@ -18,17 +14,15 @@ function rolldownTest(path: string, options: TestOptions) {
 describe("rolldown", () => {
   test("no sourcemaps", () => {
     rolldownTest("no-sourcemaps", {
-      sourceFiles: ["main.js", "another-xPvAO7_p.js"],
+      "main.js": { hasDebugIds: false, hasSourceMapUrl: false },
+      "another-xPvAO7_p.js": { hasDebugIds: false, hasSourceMapUrl: false },
     });
   });
 
   test("with sourcemaps", () => {
     rolldownTest("with-sourcemaps", {
-      sourceFiles: ["main.js", "another-xPvAO7_p.js"],
-      mapIds: {
-        "main.js.map": "b54c9e29-dccc-48c3-9ce0-e97811b99450",
-        "another-xPvAO7_p.js.map": "ef170d2c-ed10-4a19-a4ad-f214c8257c5a",
-      },
+      "main.js": { hasDebugIds: true, hasSourceMapUrl: true },
+      "another-xPvAO7_p.js": { hasDebugIds: true, hasSourceMapUrl: true },
     });
   });
 
@@ -45,7 +39,8 @@ describe("rolldown", () => {
 
   test("with inline sourcemaps", () => {
     rolldownTest("with-inline-sourcemaps", {
-      sourceFiles: ["main.js", "another-xPvAO7_p.js"],
+      "main.js": { hasDebugIds: false, hasSourceMapUrl: true },
+      "another-xPvAO7_p.js": { hasDebugIds: false, hasSourceMapUrl: true },
     });
   });
 });

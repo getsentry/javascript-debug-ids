@@ -1,1 +1,0 @@
-(self.webpackChunk=self.webpackChunk||[]).push([[559],{559:()=>{console.log("anther")}}]);

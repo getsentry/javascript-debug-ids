@@ -1,2 +1,0 @@
-console.log("anther");
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYW5vdGhlci1DUjctM0NqYy5qcyIsInNvdXJjZXMiOlsiLi4vLi4vc3JjL2Fub3RoZXIuanMiXSwic291cmNlc0NvbnRlbnQiOlsiY29uc29sZS5sb2coXCJhbnRoZXJcIik7XG4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsUUFBUSxJQUFJLFFBQVEifQ==

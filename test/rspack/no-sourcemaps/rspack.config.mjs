@@ -7,6 +7,7 @@ export default {
   entry: join(__dirname, "./src/main.js"),
   plugins: [new DebugIdRspackPlugin()],
   mode: "production",
+  devtool: false,
   output: {
     filename: "main.js",
     path: join(__dirname, "dist"),
