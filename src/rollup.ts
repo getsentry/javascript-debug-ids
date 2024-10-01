@@ -10,7 +10,7 @@ export default function debugIds(): Plugin {
   return {
     name: "rollup-plugin-debug-ids",
     generateBundle: function (
-      _: unknown,
+      _,
       bundle: { [fileName: string]: OutputAsset | OutputChunk }
     ) {
       for (const [key, value] of Object.entries(bundle)) {
@@ -35,6 +35,22 @@ export default function debugIds(): Plugin {
         sourceMapFile.source = addDebugIdToSourcemap(
           sourceMapFile.source.toString(),
           debugId
+        );
+
+        // vite has plugins that run after us which can modify the sourcemap so we
+        // proxy the sourceMapFile to re-add the debugId if the source gets set again
+        bundle[value.sourcemapFileName] = new Proxy(
+          bundle[value.sourcemapFileName],
+          {
+            set: function (target, prop, value) {
+              if (prop === "source") {
+                target[prop] = addDebugIdToSourcemap(value, debugId);
+              } else {
+                target[prop] = value;
+              }
+              return true;
+            },
+          }
         );
       }
     },

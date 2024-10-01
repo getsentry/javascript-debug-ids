@@ -29,7 +29,7 @@ export function stringToUUID(str: string): string {
 
 export function addDebugIdToSource(input: string, debugId: string): string {
   return input.replace(
-    /\s*(?:\/\/# debugId=.+)?\s*(\/\/# .+)?\s*$/,
+    /\s*(?:\/\/# debugId=.+)?\s*(\/\/# sourceMappingURL=.+)?\s*$/,
     `\n//# debugId=${debugId}\n$1`
   );
 }
