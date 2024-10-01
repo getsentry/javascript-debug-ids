@@ -21,7 +21,7 @@ export default {
 };
 ```
 
-## Webpack
+## webpack
 
 `webpack.config.mjs`
 ```ts
