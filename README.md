@@ -91,3 +91,20 @@ export default {
   },
 };
 ```
+
+## Rolldown
+
+`rolldown.config.mjs`
+```ts
+import debugIds from "@sentry/debug-ids/rolldown";
+
+export default {
+  input: "./src/main.js",
+  plugins: [debugIds()],
+  output: {
+    dir: "dist",
+    format: "esm",
+    sourcemap: true,
+  },
+};
+```
