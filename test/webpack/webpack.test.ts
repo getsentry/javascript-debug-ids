@@ -1,6 +1,6 @@
 import { describe, test } from "vitest";
 import { join } from "path";
-import { testSourcesAndMaps, TestOptions, runCmd } from "../utils";
+import { testResults, TestOptions, runCmd } from "../utils";
 
 const __dirname = new URL(".", import.meta.url).pathname;
 
@@ -8,7 +8,7 @@ function webpackTest(path: string, options: TestOptions) {
   const baseDir = join(__dirname, path);
   runCmd("webpack", ["--config", "webpack.config.mjs"], baseDir);
 
-  testSourcesAndMaps(baseDir, options);
+  testResults(baseDir, options);
 }
 
 describe("webpack", () => {

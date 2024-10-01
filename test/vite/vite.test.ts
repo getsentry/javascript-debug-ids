@@ -1,14 +1,14 @@
 import { describe, test } from "vitest";
 import { join } from "path";
-import { runCmd, TestOptions, testSourcesAndMaps } from "../utils";
+import { runCmd, TestOptions, testResults } from "../utils";
 
 const __dirname = new URL(".", import.meta.url).pathname;
 
-function viteTest(path: string, options: TestOptions) {
+function viteTest(path: string, results: TestOptions) {
   const baseDir = join(__dirname, path);
   runCmd("vite", ["build", "--config", "vite.config.mjs"], baseDir);
 
-  testSourcesAndMaps(baseDir, options);
+  testResults(baseDir, results);
 }
 
 describe("vite", () => {

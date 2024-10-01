@@ -8,24 +8,22 @@ interface SourceDetails {
   hasSourceMapUrl: boolean;
 }
 
-function getDetailsFromSource(input: string): SourceDetails {
+function parseDetailsFromSource(input: string): SourceDetails {
   const match = input.match(
     /(\/\/# debugId=([a-fA-F0-9-]+))?\s*(\/\/# sourceMappingURL=.+)?\s*$/
   );
 
-  if (match) {
-    return {
-      debugId: match[2],
-      hasSourceMapUrl: !!match[3],
-    };
-  }
-
-  return {
-    hasSourceMapUrl: false,
-  };
+  return match
+    ? {
+        debugId: match[2],
+        hasSourceMapUrl: !!match[3],
+      }
+    : {
+        hasSourceMapUrl: false,
+      };
 }
 
-function getSourceMapDebugID(...paths: string[]): string | undefined {
+function getDebugIDFromSourcemap(...paths: string[]): string | undefined {
   const path = join(...paths);
   try {
     return JSON.parse(readFileSync(path, "utf-8")).debugId;
@@ -41,13 +39,11 @@ interface SourceExpect {
 
 export type TestOptions = Record<string, SourceExpect>;
 
-export function testSourcesAndMaps(baseDir: string, results: TestOptions) {
+export function testResults(baseDir: string, results: TestOptions) {
   for (const [file, expecting] of Object.entries(results)) {
-    const sourcePath = join(baseDir, "dist", file);
-
-    const source = readFileSync(sourcePath, "utf-8");
-    const { debugId, hasSourceMapUrl } = getDetailsFromSource(source);
-    const mapDebugId = getSourceMapDebugID(baseDir, "dist", `${file}.map`);
+    const source = readFileSync(join(baseDir, "dist", file), "utf-8");
+    const { debugId, hasSourceMapUrl } = parseDetailsFromSource(source);
+    const mapDebugId = getDebugIDFromSourcemap(baseDir, "dist", `${file}.map`);
 
     if (expecting.hasDebugIds) {
       expect(debugId, "Source debugId").toBeDefined();

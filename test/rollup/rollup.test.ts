@@ -1,14 +1,14 @@
 import { describe, test } from "vitest";
 import { join } from "path";
-import { runCmd, TestOptions, testSourcesAndMaps } from "../utils";
+import { runCmd, TestOptions, testResults } from "../utils";
 
 const __dirname = new URL(".", import.meta.url).pathname;
 
-function rollupTest(path: string, options: TestOptions) {
+function rollupTest(path: string, results: TestOptions) {
   const baseDir = join(__dirname, path);
   runCmd("rollup", ["-c", "rollup.config.mjs"], baseDir);
 
-  testSourcesAndMaps(baseDir, options);
+  testResults(baseDir, results);
 }
 
 describe("rollup", () => {
