@@ -1,0 +1,6 @@
+
+//#region src/another.js
+console.log("anther");
+
+//#endregion
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYW5vdGhlci14UHZBTzdfcC5qcyIsIm5hbWVzIjpbXSwic291cmNlcyI6WyIuLi9zcmMvYW5vdGhlci5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyJjb25zb2xlLmxvZyhcImFudGhlclwiKTtcbiJdLCJtYXBwaW5ncyI6Ijs7QUFBQSxRQUFRLElBQUksU0FBUyJ9
