@@ -31,6 +31,7 @@
   "scripts": {
     "build": "rollup --config rollup.config.mjs",
     "test": "vitest run ./test/**/*.test.ts",
+    "lint": "prettier --check \"{src,test}/**/*.{ts,js}\"",
     "fix": "prettier --write \"{src,test}/**/*.{ts,js}\""
   },
   "devDependencies": {

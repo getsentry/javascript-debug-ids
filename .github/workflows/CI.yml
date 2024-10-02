@@ -16,6 +16,8 @@ jobs:
           node-version-file: 'package.json'
       - name: Install
         run: yarn install
+      - name: Lint
+        run: yarn lint
       - name: Build
         run: yarn build
       - name: Run Unit Tests
