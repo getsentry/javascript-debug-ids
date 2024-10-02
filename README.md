@@ -108,3 +108,15 @@ export default {
   },
 };
 ```
+
+## Parcel
+
+`.parcelrc`
+```json
+{
+  "extends": "@parcel/config-default",
+  "optimizers": {
+    "*.{js,cjs,mjs}": ["...", "@sentry/debug-ids/parcel"]
+  }
+}
+```
