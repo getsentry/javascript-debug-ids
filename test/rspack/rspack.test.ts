@@ -1,13 +1,13 @@
 import { describe, test } from 'vitest';
 import { join } from 'path';
-import { runCmd, TestOptions, testResults } from '../utils';
+import { cleanDir, runCmd, TestOptions, testResults } from '../utils';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 
 function rspackTest(path: string, results: TestOptions) {
   const baseDir = join(__dirname, path);
+  cleanDir(baseDir, 'dist');
   runCmd('rspack', ['build', '--config', './rspack.config.mjs'], baseDir);
-
   testResults(baseDir, results);
 }
 

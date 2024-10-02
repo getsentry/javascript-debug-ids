@@ -1,5 +1,5 @@
 import { execFileSync } from 'child_process';
-import { readFileSync } from 'fs';
+import { readFileSync, rmSync } from 'fs';
 import { join } from 'path';
 import { expect } from 'vitest';
 
@@ -28,6 +28,12 @@ interface SourceExpect {
 }
 
 export type TestOptions = Record<string, SourceExpect>;
+
+export function cleanDir(...paths: string[]) {
+  const dir = join(...paths);
+  // remove all files in the dist directory
+  rmSync(dir, { recursive: true, force: true });
+}
 
 export function testResults(baseDir: string, results: TestOptions) {
   for (const [file, expecting] of Object.entries(results)) {

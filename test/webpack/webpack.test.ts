@@ -1,13 +1,13 @@
 import { describe, test } from 'vitest';
 import { join } from 'path';
-import { testResults, TestOptions, runCmd } from '../utils';
+import { testResults, TestOptions, runCmd, cleanDir } from '../utils';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 
 function webpackTest(path: string, results: TestOptions) {
   const baseDir = join(__dirname, path);
+  cleanDir(baseDir, 'dist');
   runCmd('webpack', ['--config', 'webpack.config.mjs'], baseDir);
-
   testResults(baseDir, results);
 }
 

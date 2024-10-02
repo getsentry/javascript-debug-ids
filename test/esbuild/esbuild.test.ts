@@ -1,13 +1,13 @@
 import { describe, test } from 'vitest';
 import { join } from 'path';
-import { runCmd, TestOptions, testResults } from '../utils';
+import { cleanDir, runCmd, TestOptions, testResults } from '../utils';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 
 function esbuildTest(path: string, results: TestOptions) {
   const baseDir = join(__dirname, path);
+  cleanDir(baseDir, 'dist');
   runCmd('node', ['./build.mjs'], baseDir);
-
   testResults(baseDir, results);
 }
 
