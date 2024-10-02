@@ -33,8 +33,8 @@ function parcelTest(path: string, options: TestOptions) {
 describe('parcel', () => {
   test('with sourcemaps', () => {
     parcelTest('with-sourcemaps', {
-      'index.9ed5572c.js': { hasDebugIds: true, hasSourceMapUrl: true },
-      'another.3bf0f9d4.js': { hasDebugIds: true, hasSourceMapUrl: true },
+      'index.ec07a15c.js': { hasDebugIds: true, hasSourceMapUrl: true },
+      'another.20051b13.js': { hasDebugIds: true, hasSourceMapUrl: true },
     });
   });
 });
