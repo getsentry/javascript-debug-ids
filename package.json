@@ -30,6 +30,14 @@
     "parcel": {
       "require": "./dist/cjs/parcel.js",
       "import": "./dist/esm/parcel.js"
+    },
+    "node": {
+      "require": "./dist/cjs/node.js",
+      "import": "./dist/esm/node.js"
+    },
+    "browser": {
+      "require": "./dist/cjs/browser.js",
+      "import": "./dist/esm/browser.js"
     }
   },
   "scripts": {

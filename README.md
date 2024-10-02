@@ -1,10 +1,32 @@
 # javascript-debug-ids
 
+JavaScript Polyfills and Bundler Plugins for the TC39 [Debug ID proposal](https://github.com/tc39/source-map/blob/main/proposals/debug-id.md).
+
+## Polyfills
+
+### Browser
+
+```ts
+import { getDebugIdForUrl } from "@sentry/debug-ids/browser";
+
+const debugId = await getDebugIdForUrl("https://example.com/main.js");
+```
+
+### Node.js
+
+```ts
+import { getDebugIdForUrl } from "@sentry/debug-ids/node";
+
+const debugId = await getDebugIdForUrl("./path/to/main.js");
+```
+
+## Bundler Plugins
+
 Bundler plugins to inject [Debug
 IDs](https://github.com/tc39/source-map/blob/main/proposals/debug-id.md) into
-both source and source-maps, making build artifacts self-identifying.
+both source and source-maps.
 
-## Rollup
+### Rollup
 
 `rollup.config.mjs`
 ```ts
@@ -21,7 +43,7 @@ export default {
 };
 ```
 
-## webpack
+### webpack
 
 `webpack.config.mjs`
 ```ts
@@ -39,7 +61,7 @@ export default {
 };
 ```
 
-## esbuild
+### esbuild
 
 `build.mjs`
 ```ts
@@ -57,7 +79,7 @@ await esbuild.build({
 });
 ```
 
-## vite
+### vite
 
 `vite.config.mjs`
 ```ts
@@ -74,7 +96,7 @@ export default {
 };
 ```
 
-## rspack
+### rspack
 
 `rspack.config.mjs`
 ```ts
@@ -92,7 +114,7 @@ export default {
 };
 ```
 
-## Rolldown
+### Rolldown
 
 `rolldown.config.mjs`
 ```ts
@@ -109,7 +131,7 @@ export default {
 };
 ```
 
-## Parcel
+### Parcel
 
 `.parcelrc`
 ```json

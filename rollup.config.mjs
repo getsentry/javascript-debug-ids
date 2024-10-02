@@ -14,23 +14,23 @@ const modulePackageJson = {
   },
 };
 
-function transpileNode(format, input, outDir) {
+function transpile(format, input, outDir, preserveModules = true) {
   return {
     input,
     output: {
       sourcemap: true,
-      strict: false,
       format,
       dir: outDir,
-      preserveModules: true,
+      preserveModules,
     },
     plugins: [typescript({ outDir, tsconfig: './tsconfig.json' }), format === 'esm' ? modulePackageJson : {}],
     external,
   };
 }
 
-const inputs = [
+const nodeInputs = [
   'src/esbuild.ts',
+  'src/node.ts',
   'src/parcel.ts',
   'src/rolldown.ts',
   'src/rollup.ts',
@@ -39,4 +39,9 @@ const inputs = [
   'src/webpack.ts',
 ];
 
-export default [transpileNode('cjs', inputs, 'dist/cjs'), transpileNode('esm', inputs, 'dist/esm')];
+export default [
+  transpile('cjs', nodeInputs, 'dist/cjs'),
+  transpile('esm', nodeInputs, 'dist/esm'),
+  transpile('cjs', ['src/browser.ts'], 'dist/cjs', false),
+  transpile('esm', ['src/browser.ts'], 'dist/esm', false),
+];

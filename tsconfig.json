@@ -3,7 +3,7 @@
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"],
   "compilerOptions": {
-    "lib": ["ES2018"],
+    "lib": ["ES2018", "DOM"],
     "module": "ESNext",
     "ignoreDeprecations": "5.0"
   }

@@ -34,3 +34,10 @@ export function addDebugIdToSourcemap(input: string, debugId: string): string {
   sourceMapObj.debugId = debugId;
   return JSON.stringify(sourceMapObj);
 }
+
+const DEBUG_ID_REGEX = /\/\/# debugId=([a-fA-F0-9-]+)(?![\s\S]*\/\/# debugId=)/m;
+
+export function getDebugIdFromString(input: string): string | undefined {
+  const match = input.match(DEBUG_ID_REGEX);
+  return match ? match[1] : undefined;
+}
