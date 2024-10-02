@@ -1,13 +1,13 @@
 # javascript-debug-ids
 
-JavaScript Polyfills and Bundler Plugins for the TC39 [Debug ID proposal](https://github.com/tc39/source-map/blob/main/proposals/debug-id.md).
+JavaScript Polyfills and Bundler Plugins for the [TC39 Debug ID proposal](https://github.com/tc39/source-map/blob/main/proposals/debug-id.md).
 
 ## Polyfills
 
 ### Browser
 
 ```ts
-import { getDebugIdForUrl } from "@sentry/debug-ids/browser";
+import { getDebugIdForUrl } from "debug-id/browser";
 
 const debugId = await getDebugIdForUrl("https://example.com/main.js");
 ```
@@ -15,22 +15,20 @@ const debugId = await getDebugIdForUrl("https://example.com/main.js");
 ### Node.js
 
 ```ts
-import { getDebugIdForUrl } from "@sentry/debug-ids/node";
+import { getDebugIdForUrl } from "debug-id/node";
 
 const debugId = await getDebugIdForUrl("./path/to/main.js");
 ```
 
 ## Bundler Plugins
 
-Bundler plugins to inject [Debug
-IDs](https://github.com/tc39/source-map/blob/main/proposals/debug-id.md) into
-both source and source-maps.
+Bundler plugins to inject Debug IDs into both source and source-maps.
 
 ### Rollup
 
 `rollup.config.mjs`
 ```ts
-import debugIds from "@sentry/debug-ids/rollup";
+import debugIds from "debug-id/rollup";
 
 export default {
   input: "./src/main.js",
@@ -47,7 +45,7 @@ export default {
 
 `webpack.config.mjs`
 ```ts
-import { DebugIdWebpackPlugin } from "@sentry/debug-ids/webpack";
+import { DebugIdWebpackPlugin } from "debug-id/webpack";
 
 export default {
   entry: "./src/main.js",
@@ -66,7 +64,7 @@ export default {
 `build.mjs`
 ```ts
 import * as esbuild from "esbuild";
-import debugIds from "@sentry/debug-ids/esbuild";
+import debugIds from "debug-id/esbuild";
 
 await esbuild.build({
   entryPoints: ["./src/main.js"],
@@ -83,7 +81,7 @@ await esbuild.build({
 
 `vite.config.mjs`
 ```ts
-import debugIds from "@sentry/debug-ids/vite";
+import debugIds from "debug-id/vite";
 
 export default {
   root: "./src",
@@ -100,7 +98,7 @@ export default {
 
 `rspack.config.mjs`
 ```ts
-import { DebugIdRspackPlugin } from "@sentry/debug-ids/rspack";
+import { DebugIdRspackPlugin } from "debug-id/rspack";
 
 export default {
   entry: "./src/main.js",
@@ -118,7 +116,7 @@ export default {
 
 `rolldown.config.mjs`
 ```ts
-import debugIds from "@sentry/debug-ids/rolldown";
+import debugIds from "debug-id/rolldown";
 
 export default {
   input: "./src/main.js",
@@ -138,7 +136,7 @@ export default {
 {
   "extends": "@parcel/config-default",
   "optimizers": {
-    "*.{js,cjs,mjs}": ["...", "@sentry/debug-ids/parcel"]
+    "*.{js,cjs,mjs}": ["...", "debug-id/parcel"]
   }
 }
 ```

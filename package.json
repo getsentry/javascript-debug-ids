@@ -1,5 +1,5 @@
 {
-  "name": "@sentry/debug-ids",
+  "name": "debug-id",
   "version": "0.0.1",
   "license": "MIT",
   "exports": {
