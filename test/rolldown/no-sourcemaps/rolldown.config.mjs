@@ -1,5 +1,5 @@
 import { join } from "path";
-import debugIds from "../../../dist/rolldown.mjs";
+import debugIds from "../../../dist/esm/rolldown.js";
 import { defineConfig } from "rolldown";
 
 const __dirname = new URL(".", import.meta.url).pathname;

@@ -1,5 +1,5 @@
 import { join } from "path";
-import debugIds from "../../../dist/vite.mjs";
+import debugIds from "../../../dist/esm/vite.js";
 import { defineConfig } from "vite";
 
 const __dirname = new URL(".", import.meta.url).pathname;

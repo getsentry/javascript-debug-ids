@@ -1,5 +1,5 @@
 import { join } from "path";
-import debugIds from "../../../dist/rollup.mjs";
+import debugIds from "../../../dist/esm/rollup.js";
 
 const __dirname = new URL(".", import.meta.url).pathname;
 

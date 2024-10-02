@@ -1,3 +1,3 @@
-import rollupPlugin from "./rollup";
+import rollupPlugin from './rollup';
 
 export default rollupPlugin;

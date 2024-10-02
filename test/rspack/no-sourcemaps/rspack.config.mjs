@@ -1,5 +1,5 @@
 import { join } from "path";
-import { DebugIdRspackPlugin } from "../../../dist/rspack.mjs";
+import { DebugIdRspackPlugin } from "../../../dist/esm/rspack.js";
 
 const __dirname = new URL(".", import.meta.url).pathname;
 

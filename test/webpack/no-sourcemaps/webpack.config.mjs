@@ -1,5 +1,5 @@
 import { join } from "path";
-import { DebugIdWebpackPlugin } from "../../../dist/webpack.mjs";
+import { DebugIdWebpackPlugin } from "../../../dist/esm/webpack.js";
 
 const __dirname = new URL(".", import.meta.url).pathname;
 

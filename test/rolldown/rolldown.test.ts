@@ -1,28 +1,28 @@
-import { describe, test } from "vitest";
-import { join } from "path";
-import { runCmd, TestOptions, testResults } from "../utils";
+import { describe, test } from 'vitest';
+import { join } from 'path';
+import { runCmd, TestOptions, testResults } from '../utils';
 
-const __dirname = new URL(".", import.meta.url).pathname;
+const __dirname = new URL('.', import.meta.url).pathname;
 
 function rolldownTest(path: string, results: TestOptions) {
   const baseDir = join(__dirname, path);
-  runCmd("rolldown", ["-c", "rolldown.config.mjs"], baseDir);
+  runCmd('rolldown', ['-c', 'rolldown.config.mjs'], baseDir);
 
   testResults(baseDir, results);
 }
 
-describe("rolldown", () => {
-  test("no sourcemaps", () => {
-    rolldownTest("no-sourcemaps", {
-      "main.js": { hasDebugIds: false, hasSourceMapUrl: false },
-      "another-xPvAO7_p.js": { hasDebugIds: false, hasSourceMapUrl: false },
+describe('rolldown', () => {
+  test('no sourcemaps', () => {
+    rolldownTest('no-sourcemaps', {
+      'main.js': { hasDebugIds: false, hasSourceMapUrl: false },
+      'another-xPvAO7_p.js': { hasDebugIds: false, hasSourceMapUrl: false },
     });
   });
 
-  test("with sourcemaps", () => {
-    rolldownTest("with-sourcemaps", {
-      "main.js": { hasDebugIds: true, hasSourceMapUrl: true },
-      "another-xPvAO7_p.js": { hasDebugIds: true, hasSourceMapUrl: true },
+  test('with sourcemaps', () => {
+    rolldownTest('with-sourcemaps', {
+      'main.js': { hasDebugIds: true, hasSourceMapUrl: true },
+      'another-xPvAO7_p.js': { hasDebugIds: true, hasSourceMapUrl: true },
     });
   });
 
@@ -37,10 +37,10 @@ describe("rolldown", () => {
   //   });
   // });
 
-  test("with inline sourcemaps", () => {
-    rolldownTest("with-inline-sourcemaps", {
-      "main.js": { hasDebugIds: false, hasSourceMapUrl: true },
-      "another-xPvAO7_p.js": { hasDebugIds: false, hasSourceMapUrl: true },
+  test('with inline sourcemaps', () => {
+    rolldownTest('with-inline-sourcemaps', {
+      'main.js': { hasDebugIds: false, hasSourceMapUrl: true },
+      'another-xPvAO7_p.js': { hasDebugIds: false, hasSourceMapUrl: true },
     });
   });
 });

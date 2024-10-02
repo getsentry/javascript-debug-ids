@@ -4,40 +4,43 @@
   "license": "MIT",
   "exports": {
     "rollup": {
-      "require": "./dist/rollup.js",
-      "import": "./dist/rollup.mjs"
+      "require": "./dist/cjs/rollup.js",
+      "import": "./dist/esm/rollup.mjs"
     },
     "webpack": {
-      "require": "./dist/webpack.js",
-      "import": "./dist/webpack.mjs"
+      "require": "./dist/cjs/webpack.js",
+      "import": "./dist/esm/webpack.mjs"
     },
     "esbuild": {
-      "require": "./dist/esbuild.js",
-      "import": "./dist/esbuild.mjs"
+      "require": "./dist/cjs/esbuild.js",
+      "import": "./dist/esm/esbuild.mjs"
     },
     "vite": {
-      "require": "./dist/vite.js",
-      "import": "./dist/vite.mjs"
+      "require": "./dist/cjs/vite.js",
+      "import": "./dist/esm/vite.mjs"
     },
     "rspack": {
-      "require": "./dist/rspack.js",
-      "import": "./dist/rspack.mjs"
+      "require": "./dist/cjs/rspack.js",
+      "import": "./dist/esm/rspack.mjs"
     },
     "rolldown": {
-      "require": "./dist/rolldown.js",
-      "import": "./dist/rolldown.mjs"
+      "require": "./dist/cjs/rolldown.js",
+      "import": "./dist/esm/rolldown.mjs"
     }
   },
   "scripts": {
-    "build": "pkgroll --clean-dist --target=es2018 --target=node14 --sourcemap",
-    "test": "vitest run ./test/**/*.test.ts"
+    "build": "rollup --config rollup.config.mjs",
+    "test": "vitest run ./test/**/*.test.ts",
+    "fix": "prettier --write \"{src,test}/**/*.{ts,js}\""
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^12.1.0",
     "@rspack/cli": "^1.0.8",
     "@rspack/core": "^1.0.8",
+    "@sentry-internal/typescript": "^8.32.0",
     "@types/node": "14",
     "esbuild": "^0.24.0",
-    "pkgroll": "^2.5.0",
+    "prettier": "^3.3.3",
     "rolldown": "^0.13.2",
     "rollup": "^4.22.5",
     "typescript": "^5.6.2",

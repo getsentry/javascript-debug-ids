@@ -1,2 +1,2 @@
-console.log("do nothing");
-await import("./another.js");
+console.log('do nothing');
+await import('./another.js');

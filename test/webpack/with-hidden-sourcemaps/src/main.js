@@ -1,2 +1,2 @@
-console.log("do nothing");
-import("./another.js").then(() => {});
+console.log('do nothing');
+import('./another.js').then(() => {});
