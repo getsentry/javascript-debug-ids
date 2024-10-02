@@ -1,2 +1,2 @@
-console.log("do nothing");
-import("./another.js");
+console.log('do nothing');
+import('./another.js');

@@ -1,6 +1,6 @@
 import { join } from "path";
 import * as esbuild from "esbuild";
-import debugIds from "../../../dist/esbuild.mjs";
+import debugIds from "../../../dist/esm/esbuild.js";
 
 const __dirname = new URL(".", import.meta.url).pathname;
 

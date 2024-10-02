@@ -1,12 +1,7 @@
-import type { Compiler } from "webpack";
-import {
-  DEFAULT_EXTENSIONS,
-  addDebugIdToSource,
-  stringToUUID,
-  addDebugIdToSourcemap,
-} from "./common";
+import type { Compiler } from 'webpack';
+import { DEFAULT_EXTENSIONS, addDebugIdToSource, stringToUUID, addDebugIdToSourcemap } from './common';
 
-const PLUGIN_NAME = "DebugIdWebpackPlugin";
+const PLUGIN_NAME = 'DebugIdWebpackPlugin';
 
 export class DebugIdWebpackPlugin {
   apply(compiler: Compiler) {
@@ -28,8 +23,8 @@ export class DebugIdWebpackPlugin {
           stage: Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_INLINE,
         },
         () => {
-          const assetsWithCorrectExt = Object.keys(compilation.assets).filter(
-            (file) => DEFAULT_EXTENSIONS.some((ext) => file.endsWith(ext))
+          const assetsWithCorrectExt = Object.keys(compilation.assets).filter((file) =>
+            DEFAULT_EXTENSIONS.some((ext) => file.endsWith(ext)),
           );
 
           for (const key of assetsWithCorrectExt) {
@@ -42,7 +37,7 @@ export class DebugIdWebpackPlugin {
 
             if (Array.isArray(sourceAsset.info.related.sourceMap)) {
               throw new Error(
-                "Oh dear, we cannot handle arrays of source maps yet! Please open an issue with an example."
+                'DebugIdWebpackPlugin: Oh dear, we cannot handle arrays of source maps yet! Please open an issue with an example.',
               );
             }
 
@@ -59,17 +54,11 @@ export class DebugIdWebpackPlugin {
 
             compilation.updateAsset(key, new RawSource(updatedSource));
 
-            const updatedSourcemap = addDebugIdToSourcemap(
-              sourcemapAsset.source.source().toString(),
-              debugId
-            );
+            const updatedSourcemap = addDebugIdToSourcemap(sourcemapAsset.source.source().toString(), debugId);
 
-            compilation.updateAsset(
-              sourcemapKey,
-              new RawSource(updatedSourcemap)
-            );
+            compilation.updateAsset(sourcemapKey, new RawSource(updatedSourcemap));
           }
-        }
+        },
       );
     });
   }

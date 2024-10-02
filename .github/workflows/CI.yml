@@ -1,5 +1,9 @@
 name: 'Build & Test'
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   build:
@@ -12,6 +16,8 @@ jobs:
           node-version-file: 'package.json'
       - name: Install
         run: yarn install
+      - name: Lint
+        run: yarn lint
       - name: Build
         run: yarn build
       - name: Run Unit Tests
