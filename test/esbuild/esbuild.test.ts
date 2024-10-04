@@ -1,38 +1,30 @@
 import { describe, test } from 'vitest';
 import { join } from 'path';
-import { cleanDir, runCmd, TestOptions, testResults } from '../utils';
+import { cleanDir, runCmd, SourceExpect, testResults } from '../utils';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 
-function esbuildTest(path: string, results: TestOptions) {
+async function esbuildTest(path: string, expecting: SourceExpect) {
   const baseDir = join(__dirname, path);
   cleanDir(baseDir, 'dist');
   runCmd('node', ['./build.mjs'], baseDir);
-  testResults(baseDir, results);
+  await testResults(baseDir, expecting);
 }
 
 describe('rollup', () => {
-  test('no sourcemaps', () => {
-    esbuildTest('no-sourcemaps', {
-      'main.js': { hasDebugIds: false, hasSourceMapUrl: false },
-    });
+  test('no sourcemaps', async () => {
+    await esbuildTest('no-sourcemaps', { numberOfFiles: 1, hasDebugIds: false, hasSourceMapUrl: false });
   });
 
-  test('with sourcemaps', () => {
-    esbuildTest('with-sourcemaps', {
-      'main.js': { hasDebugIds: true, hasSourceMapUrl: true },
-    });
+  test('with sourcemaps', async () => {
+    await esbuildTest('with-sourcemaps', { numberOfFiles: 1, hasDebugIds: true, hasSourceMapUrl: true });
   });
 
-  test('with external sourcemaps', () => {
-    esbuildTest('with-external-sourcemaps', {
-      'main.js': { hasDebugIds: true, hasSourceMapUrl: false },
-    });
+  test('with external sourcemaps', async () => {
+    await esbuildTest('with-external-sourcemaps', { numberOfFiles: 1, hasDebugIds: true, hasSourceMapUrl: false });
   });
 
-  test('with inline sourcemaps', () => {
-    esbuildTest('with-inline-sourcemaps', {
-      'main.js': { hasDebugIds: false, hasSourceMapUrl: true },
-    });
+  test('with inline sourcemaps', async () => {
+    await esbuildTest('with-inline-sourcemaps', { numberOfFiles: 1, hasDebugIds: false, hasSourceMapUrl: true });
   });
 });

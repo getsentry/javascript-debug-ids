@@ -1,4 +1,6 @@
 import * as crypto from 'crypto';
+import { opendir } from 'fs/promises';
+import { join } from 'path';
 
 export const DEFAULT_EXTENSIONS = ['.js', '.mjs', '.cjs'];
 
@@ -40,4 +42,20 @@ const DEBUG_ID_REGEX = /\/\/# debugId=([a-fA-F0-9-]+)(?![\s\S]*\/\/# debugId=)/m
 export function getDebugIdFromString(input: string): string | undefined {
   const match = input.match(DEBUG_ID_REGEX);
   return match ? match[1] : undefined;
+}
+
+export async function walk(path: string, extensions: string[]): Promise<string[]> {
+  let files = [];
+
+  for await (const file of await opendir(path)) {
+    if (file.isDirectory()) {
+      files.push(...(await walk(join(path, file.name), extensions)));
+    } else {
+      if (extensions.some((ext) => file.name.endsWith(ext))) {
+        files.push(join(path, file.name));
+      }
+    }
+  }
+
+  return files;
 }

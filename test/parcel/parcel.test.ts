@@ -1,11 +1,11 @@
 import { describe, test } from 'vitest';
 import { execFileSync } from 'child_process';
 import { join } from 'path';
-import { TestOptions, cleanDir, testResults } from '../utils';
+import { cleanDir, SourceExpect, testResults } from '../utils';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 
-function parcelTest(path: string, options: TestOptions) {
+async function parcelTest(path: string, options: SourceExpect) {
   const baseDir = join(__dirname, path);
   cleanDir(baseDir, 'dist');
   execFileSync(
@@ -27,14 +27,11 @@ function parcelTest(path: string, options: TestOptions) {
     },
   );
 
-  testResults(baseDir, options);
+  await testResults(baseDir, options);
 }
 
 describe('parcel', () => {
-  test('with sourcemaps', () => {
-    parcelTest('with-sourcemaps', {
-      'index.ec07a15c.js': { hasDebugIds: true, hasSourceMapUrl: true },
-      'another.20051b13.js': { hasDebugIds: true, hasSourceMapUrl: true },
-    });
+  test('with sourcemaps', async () => {
+    await parcelTest('with-sourcemaps', { numberOfFiles: 2, hasDebugIds: true, hasSourceMapUrl: true });
   });
 });

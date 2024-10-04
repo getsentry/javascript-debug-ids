@@ -2,6 +2,7 @@ import { execFileSync } from 'child_process';
 import { readFileSync, rmSync } from 'fs';
 import { join } from 'path';
 import { expect } from 'vitest';
+import { DEFAULT_EXTENSIONS, walk } from '../src/common';
 
 interface SourceDetails {
   debugId?: string;
@@ -22,12 +23,11 @@ function getDebugIDFromSourcemap(...paths: string[]): string | undefined {
   }
 }
 
-interface SourceExpect {
+export interface SourceExpect {
+  numberOfFiles: number;
   hasDebugIds: boolean;
   hasSourceMapUrl: boolean;
 }
-
-export type TestOptions = Record<string, SourceExpect>;
 
 export function cleanDir(...paths: string[]) {
   const dir = join(...paths);
@@ -35,11 +35,15 @@ export function cleanDir(...paths: string[]) {
   rmSync(dir, { recursive: true, force: true });
 }
 
-export function testResults(baseDir: string, results: TestOptions) {
-  for (const [file, expecting] of Object.entries(results)) {
-    const source = readFileSync(join(baseDir, 'dist', file), 'utf-8');
+export async function testResults(baseDir: string, expecting: SourceExpect) {
+  const files = await walk(join(baseDir, 'dist'), DEFAULT_EXTENSIONS);
+
+  expect(files.length, 'Number of files').toEqual(expecting.numberOfFiles);
+
+  for (const file of files) {
+    const source = readFileSync(file, 'utf-8');
     const { debugId, hasSourceMapUrl } = parseDetailsFromSource(source);
-    const mapDebugId = getDebugIDFromSourcemap(baseDir, 'dist', `${file}.map`);
+    const mapDebugId = getDebugIDFromSourcemap(`${file}.map`);
 
     if (expecting.hasDebugIds) {
       expect(debugId, 'Source debugId').toBeDefined();

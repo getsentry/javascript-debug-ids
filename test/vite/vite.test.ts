@@ -1,66 +1,30 @@
 import { describe, test } from 'vitest';
 import { join } from 'path';
-import { cleanDir, runCmd, TestOptions, testResults } from '../utils';
+import { cleanDir, runCmd, SourceExpect, testResults } from '../utils';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 
-function viteTest(path: string, results: TestOptions) {
+async function viteTest(path: string, expecting: SourceExpect) {
   const baseDir = join(__dirname, path);
   cleanDir(baseDir, 'dist');
   runCmd('vite', ['build', '--config', 'vite.config.mjs'], baseDir);
-  testResults(baseDir, results);
+  await testResults(baseDir, expecting);
 }
 
 describe('vite', () => {
-  test('no sourcemaps', () => {
-    viteTest('no-sourcemaps', {
-      'assets/index-CGQYQSPO.js': {
-        hasDebugIds: false,
-        hasSourceMapUrl: false,
-      },
-      'assets/another-CR7-3Cjc.js': {
-        hasDebugIds: false,
-        hasSourceMapUrl: false,
-      },
-    });
+  test('no sourcemaps', async () => {
+    await viteTest('no-sourcemaps', { numberOfFiles: 2, hasDebugIds: false, hasSourceMapUrl: false });
   });
 
-  test('with sourcemaps', () => {
-    viteTest('with-sourcemaps', {
-      'assets/index-CGQYQSPO.js': {
-        hasDebugIds: true,
-        hasSourceMapUrl: true,
-      },
-      'assets/another-CR7-3Cjc.js': {
-        hasDebugIds: true,
-        hasSourceMapUrl: true,
-      },
-    });
+  test('with sourcemaps', async () => {
+    await viteTest('with-sourcemaps', { numberOfFiles: 2, hasDebugIds: true, hasSourceMapUrl: true });
   });
 
-  test('with hidden sourcemaps', () => {
-    viteTest('with-hidden-sourcemaps', {
-      'assets/index-CGQYQSPO.js': {
-        hasDebugIds: true,
-        hasSourceMapUrl: false,
-      },
-      'assets/another-CR7-3Cjc.js': {
-        hasDebugIds: true,
-        hasSourceMapUrl: false,
-      },
-    });
+  test('with hidden sourcemaps', async () => {
+    await viteTest('with-hidden-sourcemaps', { numberOfFiles: 2, hasDebugIds: true, hasSourceMapUrl: false });
   });
 
-  test('with inline sourcemaps', () => {
-    viteTest('with-inline-sourcemaps', {
-      'assets/index-CGQYQSPO.js': {
-        hasDebugIds: false,
-        hasSourceMapUrl: true,
-      },
-      'assets/another-CR7-3Cjc.js': {
-        hasDebugIds: false,
-        hasSourceMapUrl: true,
-      },
-    });
+  test('with inline sourcemaps', async () => {
+    await viteTest('with-inline-sourcemaps', { numberOfFiles: 2, hasDebugIds: false, hasSourceMapUrl: true });
   });
 });

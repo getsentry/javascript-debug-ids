@@ -1,42 +1,30 @@
 import { describe, test } from 'vitest';
 import { join } from 'path';
-import { cleanDir, runCmd, TestOptions, testResults } from '../utils';
+import { cleanDir, runCmd, SourceExpect, testResults } from '../utils';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 
-function rollupTest(path: string, results: TestOptions) {
+async function rollupTest(path: string, expecting: SourceExpect) {
   const baseDir = join(__dirname, path);
   cleanDir(baseDir, 'dist');
   runCmd('rollup', ['-c', 'rollup.config.mjs'], baseDir);
-  testResults(baseDir, results);
+  await testResults(baseDir, expecting);
 }
 
 describe('rollup', () => {
-  test('no sourcemaps', () => {
-    rollupTest('no-sourcemaps', {
-      'main.js': { hasDebugIds: false, hasSourceMapUrl: false },
-      'another-C0RBIlQx.js': { hasDebugIds: false, hasSourceMapUrl: false },
-    });
+  test('no sourcemaps', async () => {
+    await rollupTest('no-sourcemaps', { numberOfFiles: 2, hasDebugIds: false, hasSourceMapUrl: false });
   });
 
-  test('with sourcemaps', () => {
-    rollupTest('with-sourcemaps', {
-      'main.js': { hasDebugIds: true, hasSourceMapUrl: true },
-      'another-C0RBIlQx.js': { hasDebugIds: true, hasSourceMapUrl: true },
-    });
+  test('with sourcemaps', async () => {
+    await rollupTest('with-sourcemaps', { numberOfFiles: 2, hasDebugIds: true, hasSourceMapUrl: true });
   });
 
-  test('with hidden sourcemaps', () => {
-    rollupTest('with-hidden-sourcemaps', {
-      'main.js': { hasDebugIds: true, hasSourceMapUrl: false },
-      'another-C0RBIlQx.js': { hasDebugIds: true, hasSourceMapUrl: false },
-    });
+  test('with hidden sourcemaps', async () => {
+    await rollupTest('with-hidden-sourcemaps', { numberOfFiles: 2, hasDebugIds: true, hasSourceMapUrl: false });
   });
 
-  test('with inline sourcemaps', () => {
-    rollupTest('with-inline-sourcemaps', {
-      'main.js': { hasDebugIds: false, hasSourceMapUrl: true },
-      'another-C0RBIlQx.js': { hasDebugIds: false, hasSourceMapUrl: true },
-    });
+  test('with inline sourcemaps', async () => {
+    await rollupTest('with-inline-sourcemaps', { numberOfFiles: 2, hasDebugIds: false, hasSourceMapUrl: true });
   });
 });
