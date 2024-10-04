@@ -43,9 +43,6 @@
   "bin": {
     "debugids": "cli.js"
   },
-  "engines": {
-    "node": ">=14"
-  },
   "scripts": {
     "build": "rollup --config rollup.config.mjs",
     "postbuild": "node cli.js ./dist",
