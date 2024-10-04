@@ -40,7 +40,7 @@ const nodeInputs = [
 ];
 
 export default [
-  transpile('cjs', nodeInputs, 'dist/cjs'),
+  transpile('cjs', [...nodeInputs, 'src/cli.ts'], 'dist/cjs'),
   transpile('esm', nodeInputs, 'dist/esm'),
   transpile('cjs', ['src/browser.ts'], 'dist/cjs', false),
   transpile('esm', ['src/browser.ts'], 'dist/esm', false),

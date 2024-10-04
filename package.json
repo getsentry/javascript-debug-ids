@@ -40,8 +40,12 @@
       "import": "./dist/esm/browser.js"
     }
   },
+  "bin": {
+    "debugids": "cli.js"
+  },
   "scripts": {
     "build": "rollup --config rollup.config.mjs",
+    "postbuild": "node cli.js ./dist",
     "test": "vitest run ./test/**/*.test.ts",
     "lint": "prettier --check \"{src,test}/**/*.{ts,js}\"",
     "fix": "prettier --write \"{src,test}/**/*.{ts,js}\""
