@@ -64,7 +64,7 @@ async function groupSourceAndMapFiles(files: string[]): Promise<Array<[string, s
 
   console.timeEnd('Adding debug IDs');
   console.log(`${addedDebugIds} source files modified`);
-  console.table(modifiedFiles);
+  console.table(modifiedFiles.sort((a, b) => a.source.localeCompare(b.source)));
 
   if (missingMaps.size > 0) {
     console.log(`The following files were missing sourcemaps: ${[...missingMaps].join(', ')}`);

@@ -32,27 +32,27 @@ Adding debug IDs: 22.86ms
 ┌─────────┬────────────────────────┬────────────────────────────┬────────────────────────────────────────┐
 │ (index) │ source                 │ map                        │ debugId                                │
 ├─────────┼────────────────────────┼────────────────────────────┼────────────────────────────────────────┤
-│ 0       │ 'dist/esm/webpack.js'  │ 'dist/esm/webpack.js.map'  │ '760e8f6b-b7d6-4775-819c-91804cb035cb' │
-│ 1       │ 'dist/esm/esbuild.js'  │ 'dist/esm/esbuild.js.map'  │ '1ee53fe8-75d8-4d2d-a42c-cdd797b9938c' │
-│ 2       │ 'dist/esm/node.js'     │ 'dist/esm/node.js.map'     │ '36afeb8e-347d-47d4-9090-86c49677f099' │
-│ 3       │ 'dist/esm/rollup.js'   │ 'dist/esm/rollup.js.map'   │ '2e809256-e2d2-4ab7-a9d1-f8a0ef960196' │
-│ 4       │ 'dist/esm/rspack.js'   │ 'dist/esm/rspack.js.map'   │ '390da573-a94d-46fc-a005-90680847e7c4' │
-│ 5       │ 'dist/esm/vite.js'     │ 'dist/esm/vite.js.map'     │ 'b1c9503c-b550-4528-9927-4a51e4968bea' │
-│ 6       │ 'dist/esm/parcel.js'   │ 'dist/esm/parcel.js.map'   │ '34de941f-bbe1-462b-a12a-d127492ff33b' │
-│ 7       │ 'dist/esm/browser.js'  │ 'dist/esm/browser.js.map'  │ '1132afdb-5d3e-4306-a152-d944227e6c0b' │
-│ 8       │ 'dist/esm/common.js'   │ 'dist/esm/common.js.map'   │ '33975f78-e815-499d-b1c7-30d30a5dadff' │
-│ 9       │ 'dist/esm/rolldown.js' │ 'dist/esm/rolldown.js.map' │ 'f907c9c7-e5f6-4e9c-ae16-e1910b5f5f22' │
+│ 0       │ 'dist/cjs/browser.js'  │ 'dist/cjs/browser.js.map'  │ '5d789753-09fa-477c-80f6-6cfe447c9d9c' │
+│ 1       │ 'dist/cjs/cli.js'      │ 'dist/cjs/cli.js.map'      │ '9e422107-9efe-43e9-b689-2a4ab4b433fd' │
+│ 2       │ 'dist/cjs/common.js'   │ 'dist/cjs/common.js.map'   │ 'edbf08d3-65e4-4ba4-bc1e-89dad07dee83' │
+│ 3       │ 'dist/cjs/esbuild.js'  │ 'dist/cjs/esbuild.js.map'  │ 'ba079d7a-bf61-4d37-b0b8-d9a4b6a78b25' │
+│ 4       │ 'dist/cjs/node.js'     │ 'dist/cjs/node.js.map'     │ '8afaca7e-2109-4c76-9f06-aa4aaf838038' │
+│ 5       │ 'dist/cjs/parcel.js'   │ 'dist/cjs/parcel.js.map'   │ 'fcf05632-597b-4c44-8399-2de02a2dc8cc' │
+│ 6       │ 'dist/cjs/rolldown.js' │ 'dist/cjs/rolldown.js.map' │ '8186821c-f0ae-4fc2-8f58-d293f543b912' │
+│ 7       │ 'dist/cjs/rollup.js'   │ 'dist/cjs/rollup.js.map'   │ 'b10c5745-792b-4791-9053-f29f891bcd2a' │
+│ 8       │ 'dist/cjs/rspack.js'   │ 'dist/cjs/rspack.js.map'   │ 'c86a146b-13c9-42f9-8ce7-022b6a14041e' │
+│ 9       │ 'dist/cjs/vite.js'     │ 'dist/cjs/vite.js.map'     │ '01a2e113-63e4-4cfe-8e28-ab7b1c9ad4da' │
 │ 10      │ 'dist/cjs/webpack.js'  │ 'dist/cjs/webpack.js.map'  │ '76e02ae5-b2f5-4b86-a8aa-b10c8fe22cae' │
-│ 11      │ 'dist/cjs/rollup.js'   │ 'dist/cjs/rollup.js.map'   │ 'b10c5745-792b-4791-9053-f29f891bcd2a' │
-│ 12      │ 'dist/cjs/esbuild.js'  │ 'dist/cjs/esbuild.js.map'  │ 'ba079d7a-bf61-4d37-b0b8-d9a4b6a78b25' │
-│ 13      │ 'dist/cjs/node.js'     │ 'dist/cjs/node.js.map'     │ '8afaca7e-2109-4c76-9f06-aa4aaf838038' │
-│ 14      │ 'dist/cjs/parcel.js'   │ 'dist/cjs/parcel.js.map'   │ 'fcf05632-597b-4c44-8399-2de02a2dc8cc' │
-│ 15      │ 'dist/cjs/vite.js'     │ 'dist/cjs/vite.js.map'     │ '01a2e113-63e4-4cfe-8e28-ab7b1c9ad4da' │
-│ 16      │ 'dist/cjs/common.js'   │ 'dist/cjs/common.js.map'   │ 'edbf08d3-65e4-4ba4-bc1e-89dad07dee83' │
-│ 17      │ 'dist/cjs/cli.js'      │ 'dist/cjs/cli.js.map'      │ '56ce3672-fcdc-4b3b-80e1-69b2a6fc9b4e' │
-│ 18      │ 'dist/cjs/rspack.js'   │ 'dist/cjs/rspack.js.map'   │ 'c86a146b-13c9-42f9-8ce7-022b6a14041e' │
-│ 19      │ 'dist/cjs/rolldown.js' │ 'dist/cjs/rolldown.js.map' │ '8186821c-f0ae-4fc2-8f58-d293f543b912' │
-│ 20      │ 'dist/cjs/browser.js'  │ 'dist/cjs/browser.js.map'  │ '5d789753-09fa-477c-80f6-6cfe447c9d9c' │
+│ 11      │ 'dist/esm/browser.js'  │ 'dist/esm/browser.js.map'  │ '1132afdb-5d3e-4306-a152-d944227e6c0b' │
+│ 12      │ 'dist/esm/common.js'   │ 'dist/esm/common.js.map'   │ '33975f78-e815-499d-b1c7-30d30a5dadff' │
+│ 13      │ 'dist/esm/esbuild.js'  │ 'dist/esm/esbuild.js.map'  │ '1ee53fe8-75d8-4d2d-a42c-cdd797b9938c' │
+│ 14      │ 'dist/esm/node.js'     │ 'dist/esm/node.js.map'     │ '36afeb8e-347d-47d4-9090-86c49677f099' │
+│ 15      │ 'dist/esm/parcel.js'   │ 'dist/esm/parcel.js.map'   │ '34de941f-bbe1-462b-a12a-d127492ff33b' │
+│ 16      │ 'dist/esm/rolldown.js' │ 'dist/esm/rolldown.js.map' │ 'f907c9c7-e5f6-4e9c-ae16-e1910b5f5f22' │
+│ 17      │ 'dist/esm/rollup.js'   │ 'dist/esm/rollup.js.map'   │ '2e809256-e2d2-4ab7-a9d1-f8a0ef960196' │
+│ 18      │ 'dist/esm/rspack.js'   │ 'dist/esm/rspack.js.map'   │ '390da573-a94d-46fc-a005-90680847e7c4' │
+│ 19      │ 'dist/esm/vite.js'     │ 'dist/esm/vite.js.map'     │ 'b1c9503c-b550-4528-9927-4a51e4968bea' │
+│ 20      │ 'dist/esm/webpack.js'  │ 'dist/esm/webpack.js.map'  │ '760e8f6b-b7d6-4775-819c-91804cb035cb' │
 └─────────┴────────────────────────┴────────────────────────────┴────────────────────────────────────────┘
 ```
 
