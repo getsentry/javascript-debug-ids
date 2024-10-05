@@ -1,5 +1,5 @@
 import { join } from 'path';
-import { DebugIdWebpackPlugin } from '@debugIds/webpack';
+import { DebugIdWebpackPlugin } from '@debugids/webpack';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 

@@ -1,5 +1,6 @@
 {
   "name": "@debugids/integration-tests",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
     "@debugids/common": "0.0.1",

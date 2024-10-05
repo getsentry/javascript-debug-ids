@@ -1,5 +1,5 @@
 import { join } from 'path';
-import { DebugIdRspackPlugin } from '@debugIds/rspack';
+import { DebugIdRspackPlugin } from '@debugids/rspack';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 

@@ -1,5 +1,5 @@
 import { join } from 'path';
-import debugIds from '@debugIds/rollup';
+import debugIds from '@debugids/rollup';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 
