@@ -1,5 +1,5 @@
+import { DEFAULT_EXTENSIONS, addDebugIdToSource, addDebugIdToSourcemap, stringToUUID } from '@debugids/common';
 import type { Compiler } from 'webpack';
-import { DEFAULT_EXTENSIONS, addDebugIdToSource, stringToUUID, addDebugIdToSourcemap } from '@debugids/common';
 
 const PLUGIN_NAME = 'DebugIdWebpackPlugin';
 

@@ -1,7 +1,7 @@
+import { readFile, writeFile } from 'node:fs/promises';
+import * as path from 'node:path';
+import { DEFAULT_EXTENSIONS, addDebugIdToSource, addDebugIdToSourcemap, stringToUUID } from '@debugids/common';
 import type { PluginBuild } from 'esbuild';
-import { addDebugIdToSource, DEFAULT_EXTENSIONS, stringToUUID, addDebugIdToSourcemap } from '@debugids/common';
-import { readFile, writeFile } from 'fs/promises';
-import * as path from 'path';
 
 export default {
   name: 'esbuild-plugin-debug-ids',

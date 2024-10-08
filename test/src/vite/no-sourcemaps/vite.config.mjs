@@ -1,4 +1,4 @@
-import { join } from 'path';
+import { join } from 'node:path';
 import debugIds from '@debugids/vite';
 import { defineConfig } from 'vite';
 

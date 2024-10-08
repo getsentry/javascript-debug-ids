@@ -1,6 +1,6 @@
-import * as crypto from 'crypto';
-import { opendir } from 'fs/promises';
-import { join } from 'path';
+import * as crypto from 'node:crypto';
+import { opendir } from 'node:fs/promises';
+import { join } from 'node:path';
 
 export const DEFAULT_EXTENSIONS = ['.js', '.mjs', '.cjs'];
 
@@ -13,18 +13,7 @@ export function stringToUUID(str: string): string {
   // RFC 4122 section 4.4
   const v4variant = ['8', '9', 'a', 'b'][md5Hash.substring(16, 17).charCodeAt(0) % 4] as string;
 
-  return (
-    md5Hash.substring(0, 8) +
-    '-' +
-    md5Hash.substring(8, 12) +
-    '-4' +
-    md5Hash.substring(13, 16) +
-    '-' +
-    v4variant +
-    md5Hash.substring(17, 20) +
-    '-' +
-    md5Hash.substring(20)
-  ).toLowerCase();
+  return `${md5Hash.substring(0, 8)}-${md5Hash.substring(8, 12)}-4${md5Hash.substring(13, 16)}-${v4variant}${md5Hash.substring(17, 20)}-${md5Hash.substring(20)}`.toLowerCase();
 }
 
 export function addDebugIdToSource(input: string, debugId: string): string {
@@ -45,7 +34,7 @@ export function getDebugIdFromString(input: string): string | undefined {
 }
 
 export async function walk(path: string, extensions: string[]): Promise<string[]> {
-  let files = [];
+  const files = [];
 
   for await (const file of await opendir(path)) {
     if (file.isDirectory()) {

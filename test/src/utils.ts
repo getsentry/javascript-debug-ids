@@ -1,8 +1,8 @@
-import { execFileSync } from 'child_process';
-import { readFileSync, rmSync } from 'fs';
-import { join } from 'path';
-import { expect } from 'vitest';
+import { execFileSync } from 'node:child_process';
+import { readFileSync, rmSync } from 'node:fs';
+import { join } from 'node:path';
 import { DEFAULT_EXTENSIONS, walk } from '@debugids/common';
+import { expect } from 'vitest';
 
 interface SourceDetails {
   debugId?: string;

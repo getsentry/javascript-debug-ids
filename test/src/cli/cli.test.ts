@@ -1,6 +1,6 @@
+import { resolve } from 'node:path';
 import { describe, test } from 'vitest';
 import { runCmd, testResults } from '../utils';
-import { resolve } from 'path';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 

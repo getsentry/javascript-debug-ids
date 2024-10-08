@@ -1,5 +1,5 @@
-import { describe, expect, test } from 'vitest';
 import { addDebugIdToSource, getDebugIdFromString } from '@debugids/common';
+import { describe, expect, test } from 'vitest';
 
 describe('common', () => {
   describe('addDebugIdToSource', () => {

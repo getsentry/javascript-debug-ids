@@ -1,8 +1,8 @@
-import { builtinModules } from 'node:module';
-import { resolve, join } from 'node:path';
 import { readFileSync } from 'node:fs';
-import typescript from '@rollup/plugin-typescript';
+import { builtinModules } from 'node:module';
+import { join, resolve } from 'node:path';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
+import typescript from '@rollup/plugin-typescript';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 
@@ -10,7 +10,11 @@ const __dirname = new URL('.', import.meta.url).pathname;
 const modulePackageJson = {
   name: 'package-json-module-type',
   generateBundle() {
-    this.emitFile({ type: 'asset', fileName: 'package.json', source: '{"type": "module"}' });
+    this.emitFile({
+      type: 'asset',
+      fileName: 'package.json',
+      source: '{"type": "module"}',
+    });
   },
 };
 
@@ -43,7 +47,10 @@ function transpile(pkg, format, bundle = false) {
 
 export default [
   ...['common', 'esbuild', 'rollup', 'webpack', 'parcel', 'rolldown', 'rspack', 'vite', 'node', 'cli'].reduce(
-    (acc, pkg) => [...acc, transpile(pkg, 'cjs'), transpile(pkg, 'esm')],
+    (acc, pkg) => {
+      acc.push(transpile(pkg, 'cjs'), transpile(pkg, 'esm'));
+      return acc;
+    },
     [],
   ),
   transpile('browser', 'cjs', true),

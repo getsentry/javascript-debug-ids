@@ -1,5 +1,5 @@
-import { readFile, writeFile } from 'fs/promises';
-import { addDebugIdToSource, stringToUUID, addDebugIdToSourcemap, walk, DEFAULT_EXTENSIONS } from '@debugids/common';
+import { readFile, writeFile } from 'node:fs/promises';
+import { DEFAULT_EXTENSIONS, addDebugIdToSource, addDebugIdToSourcemap, stringToUUID, walk } from '@debugids/common';
 
 async function groupSourceAndMapFiles(files: string[]): Promise<Array<[string, string | undefined]>> {
   const sourceFiles = files.filter((f) => !f.endsWith('.map'));
@@ -21,8 +21,8 @@ async function groupSourceAndMapFiles(files: string[]): Promise<Array<[string, s
   const extensions = [...DEFAULT_EXTENSIONS, ...DEFAULT_EXTENSIONS.map((e) => `${e}.map`)];
   const results = await walk(process.argv[2], extensions);
   const groupedResults = await groupSourceAndMapFiles(results);
-  let modifiedFiles: Array<{ source: string; map: string; debugId: string }> = [];
-  let missingMaps = new Set<string>();
+  const modifiedFiles: Array<{ source: string; map: string; debugId: string }> = [];
+  const missingMaps = new Set<string>();
   let addedDebugIds = 0;
 
   const promises = groupedResults.map(async ([source, map]) => {

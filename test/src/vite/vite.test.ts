@@ -1,6 +1,6 @@
+import { join } from 'node:path';
 import { describe, test } from 'vitest';
-import { join } from 'path';
-import { cleanDir, runCmd, SourceExpect, testResults } from '../utils';
+import { type SourceExpect, cleanDir, runCmd, testResults } from '../utils';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 
