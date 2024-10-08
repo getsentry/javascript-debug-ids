@@ -1,10 +1,28 @@
 {
-  "extends": "./node_modules/@sentry-internal/typescript/tsconfig.json",
-  "include": ["src/**/*.ts"],
+  "include": ["packages/**/src/**/*.ts"],
   "exclude": ["node_modules"],
   "compilerOptions": {
+    "strict": true,
+    "alwaysStrict": false,
+    "declaration": true,
+    "declarationMap": true,
+    "downlevelIteration": true,
+    "importHelpers": true,
+    "inlineSources": true,
+    "isolatedModules": true,
+    "noErrorTruncation": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "preserveWatchOutput": true,
+    "sourceMap": true,
+    "strictBindCallApply": true,
+    "target": "es2018",
+    "noUncheckedIndexedAccess": true,
     "lib": ["ES2018", "DOM"],
     "module": "ESNext",
-    "ignoreDeprecations": "5.0"
+    "ignoreDeprecations": "5.0",
+    "moduleResolution": "Bundler"
   }
 }

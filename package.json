@@ -2,62 +2,21 @@
   "name": "debug-id",
   "version": "0.0.1",
   "license": "MIT",
-  "exports": {
-    "rollup": {
-      "require": "./dist/cjs/rollup.js",
-      "import": "./dist/esm/rollup.mjs"
-    },
-    "webpack": {
-      "require": "./dist/cjs/webpack.js",
-      "import": "./dist/esm/webpack.mjs"
-    },
-    "esbuild": {
-      "require": "./dist/cjs/esbuild.js",
-      "import": "./dist/esm/esbuild.mjs"
-    },
-    "vite": {
-      "require": "./dist/cjs/vite.js",
-      "import": "./dist/esm/vite.mjs"
-    },
-    "rspack": {
-      "require": "./dist/cjs/rspack.js",
-      "import": "./dist/esm/rspack.mjs"
-    },
-    "rolldown": {
-      "require": "./dist/cjs/rolldown.js",
-      "import": "./dist/esm/rolldown.mjs"
-    },
-    "parcel": {
-      "require": "./dist/cjs/parcel.js",
-      "import": "./dist/esm/parcel.js"
-    },
-    "node": {
-      "require": "./dist/cjs/node.js",
-      "import": "./dist/esm/node.js"
-    },
-    "browser": {
-      "require": "./dist/cjs/browser.js",
-      "import": "./dist/esm/browser.js"
-    }
-  },
-  "bin": {
-    "debugids": "cli.js"
-  },
+  "private": true,
   "scripts": {
     "build": "rollup --config rollup.config.mjs",
-    "postbuild": "node cli.js ./dist",
-    "test": "vitest run ./test/**/*.test.ts",
-    "lint": "prettier --check \"{src,test}/**/*.{ts,js}\"",
-    "fix": "prettier --write \"{src,test}/**/*.{ts,js}\""
+    "test": "vitest run ./test/src/**/*.test.ts",
+    "lint": "biome check",
+    "fix": "biome check --write"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.3",
+    "@rollup/plugin-node-resolve": "^15.3.0",
     "@rollup/plugin-typescript": "^12.1.0",
     "@rspack/cli": "^1.0.8",
     "@rspack/core": "^1.0.8",
-    "@sentry-internal/typescript": "^8.32.0",
-    "@types/node": "14",
+    "@types/node": "^20.0.0",
     "esbuild": "^0.24.0",
-    "prettier": "^3.3.3",
     "parcel": "^2.12.0",
     "rolldown": "^0.13.2",
     "rollup": "^4.22.5",
@@ -67,7 +26,9 @@
     "webpack": "^5.95.0",
     "webpack-cli": "^5.1.4"
   },
+  "workspaces": ["packages/*", "test"],
   "volta": {
-    "node": "20.17.0"
+    "node": "20.18.0",
+    "yarn": "1.22.22"
   }
 }
