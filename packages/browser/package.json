@@ -1,6 +1,6 @@
 {
-  "name": "@debugids/browser",
-  "version": "0.0.1",
+  "name": "debug-ids-browser",
+  "version": "0.1.0",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/cjs/index.d.ts",
@@ -17,6 +17,6 @@
     }
   },
   "devDependencies": {
-    "@debugids/common": "0.0.1"
+    "debug-ids-common": "0.0.1"
   }
 }
