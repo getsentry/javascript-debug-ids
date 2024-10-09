@@ -1,14 +1,20 @@
-import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 import { describe, test } from 'vitest';
-import { type SourceExpect, cleanDir, testResults } from '../utils';
+import { type SourceExpect, cleanDir, runCmd, testResults } from '../utils';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 
 async function parcelTest(path: string, options: SourceExpect) {
   const baseDir = join(__dirname, path);
   cleanDir(baseDir, 'dist');
-  execFileSync(
+
+  // Parcel currently crashes in Node v22
+  // https://github.com/parcel-bundler/parcel/issues/9926
+  if (process.version.startsWith('v22.')) {
+    return;
+  }
+
+  runCmd(
     'parcel',
     [
       'build',
@@ -21,10 +27,7 @@ async function parcelTest(path: string, options: SourceExpect) {
       './.parcel-cache',
       './src/index.html',
     ],
-    {
-      cwd: baseDir,
-      stdio: 'inherit',
-    },
+    baseDir,
   );
 
   await testResults(baseDir, options);
