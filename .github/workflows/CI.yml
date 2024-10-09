@@ -69,4 +69,4 @@ jobs:
           path: ./packages
           merge-multiple: true
       - name: Run Unit Tests
-        run: yarn test:browser
+        run: yarn playwright install && yarn test:browser
