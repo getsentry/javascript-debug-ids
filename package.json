@@ -5,7 +5,9 @@
   "private": true,
   "scripts": {
     "build": "rollup --config rollup.config.mjs",
-    "test": "vitest run ./test/src/**/*.test.ts",
+    "test": "yarn test:node && yarn test:browser",
+    "test:node": "cd test/node && yarn test",
+    "test:browser": "cd test/browser && yarn test",
     "lint": "biome check",
     "fix": "biome check --write"
   },
@@ -22,11 +24,10 @@
     "rollup": "^4.22.5",
     "typescript": "^5.6.2",
     "vite": "^5.4.8",
-    "vitest": "^2.1.1",
     "webpack": "^5.95.0",
     "webpack-cli": "^5.1.4"
   },
-  "workspaces": ["packages/*", "test"],
+  "workspaces": ["packages/*", "test/*"],
   "volta": {
     "node": "20.18.0",
     "yarn": "1.22.22"

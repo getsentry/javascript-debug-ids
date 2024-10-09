@@ -1,7 +1,10 @@
 {
-  "name": "@debugids/integration-tests",
+  "name": "@debugids/integration-tests-node",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "test": "vitest run ./src/**/*.test.ts"
+  },
   "dependencies": {
     "@debugids/common": "0.0.1",
     "@debugids/cli": "0.0.1",
@@ -12,5 +15,8 @@
     "@debugids/vite": "0.0.1",
     "@debugids/esbuild": "0.0.1",
     "@debugids/parcel-optimizer-debugids": "0.0.1"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.1"
   }
 }
