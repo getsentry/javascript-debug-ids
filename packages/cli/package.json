@@ -6,7 +6,7 @@
     "debugids": "./cli.js"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=18"
   },
   "dependencies": {
     "@debugids/common": "0.0.1"
