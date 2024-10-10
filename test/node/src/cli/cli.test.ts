@@ -21,7 +21,7 @@ describe('cli', () => {
     ];
 
     for (const pkg of packages) {
-      const repoRoot = resolve(__dirname, '..', '..', '..');
+      const repoRoot = resolve(__dirname, '..', '..', '..', '..');
       const pkgRoot = resolve(repoRoot, 'packages', pkg);
       const pkgDist = resolve(pkgRoot, 'dist');
 
