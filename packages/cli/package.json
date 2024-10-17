@@ -1,6 +1,7 @@
 {
   "name": "@debugids/cli",
   "version": "0.0.1",
+  "license": "MIT",
   "main": "./dist/cjs/index.js",
   "bin": {
     "debugids": "./cli.js"
