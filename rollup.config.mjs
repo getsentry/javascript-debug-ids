@@ -3,6 +3,7 @@ import { builtinModules } from 'node:module';
 import { join, resolve } from 'node:path';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
+import { defineConfig } from 'rollup';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 
@@ -27,7 +28,7 @@ function transpile(pkg, format, bundle = false) {
   const input = join(pkgRoot, 'src', 'index.ts');
   const outDir = join(pkgRoot, 'dist', format);
 
-  return {
+  return defineConfig({
     input,
     output: {
       sourcemap: true,
@@ -35,14 +36,14 @@ function transpile(pkg, format, bundle = false) {
       dir: outDir,
       preserveModules: !bundle,
     },
-    treeshake: { moduleSideEffects: false },
+    treeshake: { moduleSideEffects: builtinModules },
     plugins: [
       nodeResolve(),
       typescript({ include: [input], outDir, tsconfig }),
       format === 'esm' ? modulePackageJson : {},
     ],
     external,
-  };
+  });
 }
 
 export default [

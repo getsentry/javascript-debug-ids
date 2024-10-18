@@ -1,7 +1,7 @@
 import * as fs from 'node:fs/promises';
 import { getDebugIdFromString } from '@debugids/common';
 
-async function getLastBytesFromFile(path: string, bytesToRead = 1024) {
+async function getLastBytesFromFile(path: string, bytesToRead = 1024): Promise<Buffer> {
   let handle: fs.FileHandle | undefined;
   try {
     handle = await fs.open(path, 'r');
@@ -15,7 +15,11 @@ async function getLastBytesFromFile(path: string, bytesToRead = 1024) {
 }
 
 export async function getDebugIdForUrl(pathOrUrl: string): Promise<string | undefined> {
-  const endOfFile = await getLastBytesFromFile(pathOrUrl);
-  const eofString = endOfFile.toString('utf-8');
-  return getDebugIdFromString(eofString);
+  try {
+    const endOfFile = await getLastBytesFromFile(pathOrUrl);
+    const eofString = endOfFile.toString('utf-8');
+    return getDebugIdFromString(eofString);
+  } catch (_) {}
+
+  return;
 }
