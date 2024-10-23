@@ -10,10 +10,14 @@
     "test:node": "turbo run test --filter=./test/node",
     "test:browser": "turbo run test --filter=./test/browser",
     "lint": "biome check",
-    "fix": "biome check --write"
+    "fix": "biome check --write",
+    "changeset:add": "changeset",
+    "changeset:consume": "changeset version",
+    "changeset:publish": "changeset publish"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.3",
+    "@changesets/cli": "^2.27.9",
     "@rollup/plugin-node-resolve": "^15.3.0",
     "@rollup/plugin-typescript": "^12.1.0",
     "@rspack/cli": "^1.0.8",
