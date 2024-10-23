@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "test": "yarn build && playwright test",
+    "test:watch": "playwright test --watch",
     "build": "vite build --target esnext",
     "server": "http-server ./dist --port 8080"
   },
