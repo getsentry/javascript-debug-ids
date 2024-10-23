@@ -21,7 +21,7 @@ const modulePackageJson = {
 
 const tsconfig = resolve(__dirname, 'tsconfig.json');
 
-function transpile(pkg, format, bundle = false) {
+export function transpile(pkg, format, bundle = false) {
   const pkgRoot = join(__dirname, 'packages', pkg);
   const pkgJson = JSON.parse(readFileSync(join(pkgRoot, 'package.json')));
   const external = [...builtinModules, ...Object.keys(pkgJson.dependencies || {})];
@@ -45,15 +45,3 @@ function transpile(pkg, format, bundle = false) {
     external,
   });
 }
-
-export default [
-  ...['common', 'esbuild', 'rollup', 'webpack', 'parcel', 'rolldown', 'rspack', 'vite', 'node', 'cli'].reduce(
-    (acc, pkg) => {
-      acc.push(transpile(pkg, 'cjs'), transpile(pkg, 'esm'));
-      return acc;
-    },
-    [],
-  ),
-  transpile('browser', 'cjs', true),
-  transpile('browser', 'esm', true),
-];

@@ -2,12 +2,18 @@
   "name": "@debugids/cli",
   "version": "0.0.1",
   "license": "MIT",
+  "homepage": "https://getsentry.github.io/debugids/",
+  "repository": "git://github.com/getsentry/javascript-debug-ids.git",
   "main": "./dist/cjs/index.js",
   "bin": {
     "debugids": "./cli.js"
   },
   "engines": {
     "node": ">=18"
+  },
+  "scripts": {
+    "build": "rollup --config rollup.config.mjs",
+    "build:watch": "rollup --config rollup.config.mjs --watch"
   },
   "dependencies": {
     "@debugids/common": "0.0.1"

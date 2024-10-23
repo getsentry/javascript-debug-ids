@@ -4,10 +4,11 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "rollup --config rollup.config.mjs",
-    "test": "yarn test:node && yarn test:browser",
-    "test:node": "cd test/node && yarn test",
-    "test:browser": "cd test/browser && yarn test",
+    "build": "turbo run build --filter=./packages/*",
+    "build:watch": "turbo run build --filter=./packages/*",
+    "test": "turbo run test --filter=./test/*",
+    "test:node": "turbo run test --filter=./test/node",
+    "test:browser": "turbo run test --filter=./test/browser",
     "lint": "biome check",
     "fix": "biome check --write"
   },
@@ -22,12 +23,14 @@
     "parcel": "^2.12.0",
     "rolldown": "^0.13.2",
     "rollup": "^4.22.5",
+    "turbo": "^2.2.3",
     "typescript": "^5.6.2",
     "vite": "^5.4.8",
     "webpack": "^5.95.0",
     "webpack-cli": "^5.1.4"
   },
   "workspaces": ["packages/*", "test/*"],
+  "packageManager": "yarn@1.22.22",
   "volta": {
     "node": "20.18.0",
     "yarn": "1.22.22"
