@@ -29,5 +29,9 @@
   "dependencies": {
     "@parcel/plugin": "^2.0.0",
     "@debugids/common": "0.1.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }

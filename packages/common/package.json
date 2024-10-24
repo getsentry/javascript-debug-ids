@@ -21,5 +21,9 @@
   },
   "scripts": {
     "build": "rollup --config rollup.config.mjs"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }
