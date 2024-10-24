@@ -19,9 +19,7 @@
       }
     }
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "engines": {
     "parcel": "^2.0.0"
   },
