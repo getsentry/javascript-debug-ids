@@ -1,6 +1,6 @@
 {
   "name": "@debugids/cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "homepage": "https://getsentry.github.io/debugids/",
   "repository": "git://github.com/getsentry/javascript-debug-ids.git",
@@ -11,13 +11,15 @@
   "engines": {
     "node": ">=18"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "rollup --config rollup.config.mjs",
     "build:watch": "rollup --config rollup.config.mjs --watch"
   },
   "dependencies": {
-    "@debugids/common": "0.1.0"
+    "@debugids/common": "0.1.1"
   },
   "publishConfig": {
     "access": "public",
