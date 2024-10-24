@@ -1,6 +1,6 @@
 {
   "name": "@debugids/integration-tests-browser",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "test": "yarn build && playwright test",
@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@sentry/browser": "^8.33.1",
-    "@debugids/browser": "0.1.0",
-    "@debugids/cli": "0.1.0"
+    "@debugids/browser": "0.0.1",
+    "@debugids/cli": "0.0.1"
   },
   "devDependencies": {
     "@playwright/test": "^1.48.0",
