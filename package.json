@@ -16,7 +16,7 @@
     "changeset:publish": "changeset publish"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.3",
+    "@biomejs/biome": "1.9.4",
     "@changesets/cli": "^2.27.9",
     "@rollup/plugin-node-resolve": "^15.3.0",
     "@rollup/plugin-typescript": "^12.1.0",
