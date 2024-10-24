@@ -1,5 +1,15 @@
 # @debugids/cli
 
+## 0.1.1
+
+### Patch Changes
+
+- b67e1a6: fix: Use correct deps
+- b67e1a6: feat: Use files to explictly include used files
+- Updated dependencies [b67e1a6]
+- Updated dependencies [b67e1a6]
+  - @debugids/common@0.1.1
+
 ## 0.1.0
 
 ### Minor Changes

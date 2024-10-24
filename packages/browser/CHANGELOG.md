@@ -1,5 +1,12 @@
 # @debugids/browser
 
+## 0.1.1
+
+### Patch Changes
+
+- b67e1a6: fix: Use correct deps
+- b67e1a6: feat: Use files to explictly include used files
+
 ## 0.1.0
 
 ### Minor Changes
