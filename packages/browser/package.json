@@ -1,6 +1,6 @@
 {
   "name": "@debugids/browser",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "homepage": "https://getsentry.github.io/debugids/",
   "repository": "git://github.com/getsentry/javascript-debug-ids.git",
@@ -25,6 +25,6 @@
     "build:watch": "rollup --config rollup.config.mjs --watch"
   },
   "devDependencies": {
-    "@debugids/common": "0.0.1"
+    "@debugids/common": "0.1.0"
   }
 }
