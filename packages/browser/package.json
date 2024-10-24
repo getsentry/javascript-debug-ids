@@ -20,6 +20,7 @@
       }
     }
   },
+  "files": ["dist"],
   "scripts": {
     "build": "rollup --config rollup.config.mjs",
     "build:watch": "rollup --config rollup.config.mjs --watch"

@@ -1,5 +1,7 @@
 # `@debugids/cli`
 
+[![npm version](https://img.shields.io/npm/v/@debugids/cli.svg)](https://www.npmjs.com/package/@debugids/cli)
+
 The CLI can be used to add Debug IDs to source files and corresponding sourcemaps.
 
 ```
