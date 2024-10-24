@@ -32,5 +32,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         with:
-          publish: pnpm changeset:publish
+          publish: yarn changeset:publish
           createGithubReleases: true
