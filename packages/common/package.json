@@ -1,6 +1,6 @@
 {
   "name": "@debugids/common",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "homepage": "https://getsentry.github.io/debugids/",
   "repository": "git://github.com/getsentry/javascript-debug-ids.git",
