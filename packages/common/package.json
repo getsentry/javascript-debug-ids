@@ -19,9 +19,7 @@
       }
     }
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "rollup --config rollup.config.mjs"
   },
