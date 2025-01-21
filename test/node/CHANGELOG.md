@@ -1,5 +1,21 @@
 # @debugids/integration-tests-node
 
+## 0.0.4
+
+### Patch Changes
+
+- 70ed53d: Document native support for rolldown, rollup, webpack, rspack
+- Updated dependencies [70ed53d]
+  - @debugids/cli@0.1.2
+  - @debugids/common@0.1.2
+  - @debugids/esbuild@0.1.2
+  - @debugids/parcel-optimizer-debugids@0.1.2
+  - @debugids/rolldown@0.1.2
+  - @debugids/rollup@0.1.2
+  - @debugids/rspack@0.1.2
+  - @debugids/vite@0.1.2
+  - @debugids/webpack@0.1.2
+
 ## 0.0.3
 
 ### Patch Changes

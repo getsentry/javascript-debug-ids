@@ -1,5 +1,11 @@
 # @debugids/browser
 
+## 0.1.2
+
+### Patch Changes
+
+- 70ed53d: Document native support for rolldown, rollup, webpack, rspack
+
 ## 0.1.1
 
 ### Patch Changes
