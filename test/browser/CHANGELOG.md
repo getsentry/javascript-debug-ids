@@ -1,5 +1,14 @@
 # @debugids/integration-tests-browser
 
+## 0.0.4
+
+### Patch Changes
+
+- 70ed53d: Document native support for rolldown, rollup, webpack, rspack
+- Updated dependencies [70ed53d]
+  - @debugids/browser@0.1.2
+  - @debugids/cli@0.1.2
+
 ## 0.0.3
 
 ### Patch Changes

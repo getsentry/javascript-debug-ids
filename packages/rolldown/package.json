@@ -1,6 +1,6 @@
 {
   "name": "@debugids/rolldown",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "homepage": "https://getsentry.github.io/debugids/",
   "repository": "git://github.com/getsentry/javascript-debug-ids.git",
@@ -19,13 +19,15 @@
       }
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "rollup --config rollup.config.mjs",
     "build:watch": "rollup --config rollup.config.mjs --watch"
   },
   "dependencies": {
-    "@debugids/rollup": "0.1.1"
+    "@debugids/rollup": "0.1.2"
   },
   "publishConfig": {
     "access": "public",

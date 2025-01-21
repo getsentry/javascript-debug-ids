@@ -1,6 +1,6 @@
 {
   "name": "@debugids/parcel-optimizer-debugids",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "homepage": "https://getsentry.github.io/debugids/",
   "repository": "git://github.com/getsentry/javascript-debug-ids.git",
@@ -19,7 +19,9 @@
       }
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "engines": {
     "parcel": "^2.0.0"
   },
@@ -29,7 +31,7 @@
   },
   "dependencies": {
     "@parcel/plugin": "^2.0.0",
-    "@debugids/common": "0.1.1"
+    "@debugids/common": "0.1.2"
   },
   "publishConfig": {
     "access": "public",

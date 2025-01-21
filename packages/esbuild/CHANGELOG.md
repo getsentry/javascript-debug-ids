@@ -1,5 +1,13 @@
 # @debugids/esbuild
 
+## 0.1.2
+
+### Patch Changes
+
+- 70ed53d: Document native support for rolldown, rollup, webpack, rspack
+- Updated dependencies [70ed53d]
+  - @debugids/common@0.1.2
+
 ## 0.1.1
 
 ### Patch Changes
