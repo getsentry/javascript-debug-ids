@@ -17,26 +17,26 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@changesets/cli": "^2.27.9",
-    "@rollup/plugin-node-resolve": "^15.3.0",
-    "@rollup/plugin-typescript": "^12.1.0",
-    "@rspack/cli": "^1.0.8",
-    "@rspack/core": "^1.0.8",
-    "@types/node": "^18.0.0",
-    "esbuild": "^0.24.0",
-    "parcel": "^2.12.0",
-    "rolldown": "^0.13.2",
-    "rollup": "^4.22.5",
-    "turbo": "^2.2.3",
-    "typescript": "^5.6.2",
-    "vite": "^5.4.8",
-    "webpack": "^5.95.0",
-    "webpack-cli": "^5.1.4"
+    "@changesets/cli": "^2.28.1",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@rspack/cli": "^1.2.7",
+    "@rspack/core": "^1.2.7",
+    "@types/node": "^22.13.8",
+    "esbuild": "^0.25.0",
+    "parcel": "^2.13.3",
+    "rolldown": "1.0.0-beta.3",
+    "rollup": "^4.34.9",
+    "turbo": "^2.4.4",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.0",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1"
   },
   "workspaces": ["packages/*", "test/*"],
   "packageManager": "yarn@1.22.22",
   "volta": {
-    "node": "20.18.0",
+    "node": "22.14.0",
     "yarn": "1.22.22"
   }
 }
