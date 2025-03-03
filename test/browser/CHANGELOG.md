@@ -1,5 +1,15 @@
 # @debugids/integration-tests-browser
 
+## 0.0.5
+
+### Patch Changes
+
+- 09d89b2: Document native support for vite
+- Updated dependencies [09d89b2]
+- Updated dependencies [dca163e]
+  - @debugids/browser@0.1.3
+  - @debugids/cli@0.1.3
+
 ## 0.0.4
 
 ### Patch Changes

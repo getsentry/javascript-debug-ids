@@ -1,5 +1,15 @@
 # @debugids/rspack
 
+## 0.1.3
+
+### Patch Changes
+
+- 09d89b2: Document native support for vite
+- dca163e: Update MIT LICENSE date range to 2025
+- Updated dependencies [09d89b2]
+- Updated dependencies [dca163e]
+  - @debugids/webpack@0.1.3
+
 ## 0.1.2
 
 ### Patch Changes
