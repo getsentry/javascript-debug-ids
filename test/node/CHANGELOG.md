@@ -1,5 +1,22 @@
 # @debugids/integration-tests-node
 
+## 0.0.5
+
+### Patch Changes
+
+- 09d89b2: Document native support for vite
+- Updated dependencies [09d89b2]
+- Updated dependencies [dca163e]
+  - @debugids/cli@0.1.3
+  - @debugids/common@0.1.3
+  - @debugids/esbuild@0.1.3
+  - @debugids/parcel-optimizer-debugids@0.1.3
+  - @debugids/rolldown@0.1.3
+  - @debugids/rollup@0.1.3
+  - @debugids/rspack@0.1.3
+  - @debugids/vite@0.1.3
+  - @debugids/webpack@0.1.3
+
 ## 0.0.4
 
 ### Patch Changes
