@@ -14,7 +14,7 @@
     "@debugids/cli": "0.1.3"
   },
   "devDependencies": {
-    "@playwright/test": "^1.48.0",
+    "@playwright/test": "^1.52.0",
     "http-server": "^14.1.1"
   }
 }
