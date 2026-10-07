@@ -34,7 +34,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [20, 22]
+        version: [18, 20, 22]
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
@@ -42,7 +42,7 @@ jobs:
           cache: yarn
           node-version: ${{ matrix.version }}
       - name: Install
-        run: yarn install
+        run: yarn install --ignore-engines
       - name: Download Artifacts
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
